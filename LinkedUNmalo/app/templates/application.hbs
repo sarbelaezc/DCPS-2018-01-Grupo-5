@@ -1,0 +1,17 @@
+<p>
+  Title:
+  {{input type='text' value=title}}
+  &nbsp;
+  Body:
+  &nbsp;
+  {{input type='text' value=body}}
+  &nbsp;
+  =
+  &nbsp;
+  {{result}}
+</p>
+<p>
+  <button type='button' {{action 'calculate' num1 num2 result}}> Calcular </button>
+</p>
+
+{{outlet}}
