@@ -1,0 +1,15 @@
+.header{
+	text-align: center;
+	background-color: #38cc2f; /*rgba(0, 197, 218, 0.4);*/
+	margin: 1em;
+	padding: 0.05em;
+	border-radius: 1em;
+	font-size: 30px;
+	color: #F5FFFA;
+}
+
+.body{
+	text-align: center;
+	font-family: Arial;
+	font-size: 25px;
+}
