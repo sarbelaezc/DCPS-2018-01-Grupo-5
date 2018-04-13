@@ -1,1 +1,17 @@
+<div class='register'>
+  <h1>Resgistrate</h1>
+  <p>Nombre:
+    {{input type='text' value=name}}
+  </p>
+  <p>Contraseña:
+    {{input type='password' value=password}}
+  </p>
+  <p>Confirmar contraseña:
+    {{input type='password' value=confirmPassword}}
+  </p>
+
+  <p>
+    <button type='button' {{action 'register' name password confirmPassword}}> Registrar </button>
+  </p>
+</div>
 {{outlet}}
