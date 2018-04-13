@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .header{
 	text-align: center;
 	background-color: #38cc2f; /*rgba(0, 197, 218, 0.4);*/
@@ -13,5 +13,16 @@
 	text-align: center;
 	font-family: Arial;
 	font-size: 25px;
-=======
->>>>>>> 882960da2bd2c1c37c9d11d7fd8f3f25e6310686
+}
+
+h1{
+  /* font-family: sans-serif; */
+  margin: 1em;
+  background-color: #9AFF81;
+}
+
+.register{
+  font-family: arial;
+  margin: 4em;
+}
+
