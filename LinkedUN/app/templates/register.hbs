@@ -1,7 +1,20 @@
 <div class='register'>
-  <h1>Resgistrate</h1>
-  <p>Nombre:
+  <h1>Resgístrate</h1>
+  <p>Nombre completo:
     {{input type='text' value=name}}
+  </p>
+  <p>Correo institucional:
+    {{input type='text' value=email}} @unal.edu.co
+  </p>
+  <p>Tipo de vinculación:
+    <select onchange={{action 'cambioVinculacion' value='target.value'}}>
+      <option value="administrativo">Empleado Administrativo</option>
+      <option value="contratante">Empleado Contratante</option>
+      <option value="estudiante">Estudiante Activo</option>
+    </select>
+  </p>
+  <p>Dependencia:
+    {{input type='text' value=dependency}}
   </p>
   <p>Contraseña:
     {{input type='password' value=password}}
@@ -11,7 +24,7 @@
   </p>
 
   <p>
-    <button type='button' {{action 'register' name password confirmPassword}}> Registrar </button>
+    <button class='register' type='button'  {{action 'register' name email vinculacion dependency password confirmPassword}}> Registrar </button>
   </p>
 </div>
 {{outlet}}
