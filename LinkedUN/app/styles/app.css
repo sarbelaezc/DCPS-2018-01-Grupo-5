@@ -25,6 +25,20 @@ h1{
   margin: 4em;
 }
 
+button.register{
+	font-size: 14px;
+	margin: 2em;
+  border: 2px solid #4CAF50;
+  color: black;
+  padding: 7.5px 16px;
+	border-radius: 0.5em;
+  background-color: #94FF81;
+	float: right;
+  cursor: pointer;
+}
+
+button.register:hover {opacity: 0.7}
+
 .grid{
 	margin: 2em;
 	display: grid;
