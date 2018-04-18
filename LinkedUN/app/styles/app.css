@@ -5,7 +5,7 @@
 	padding: 0.05em;
 	border-radius: 1em;
 	font-size: 30px;
-	color: #F5FFFA;
+	color: #F5FFFA;	 
 }
 
 .body{
@@ -37,13 +37,29 @@ h1{
 }
 
 .leftpanel{
+	float: left;
 	text-align: center;
 }
 
 .centerpanel{
+	float: center;
 	text-align: center;
 }
 
 .rightpanel{
+	float: right;
 	text-align: center;
 }
+
+.LoginButton{
+	align-items: right;
+	text-decoration: none;
+	font-size: 16px;
+	border: 1px solid green;
+	color: black;
+	padding: 10px 15px;
+	background-color: #9AFF81;
+	float: right;	
+}
+
+.LoginButton:hover {opacity: 0.7}
