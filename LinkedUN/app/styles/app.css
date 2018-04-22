@@ -1,3 +1,4 @@
+/* ------------------------------Carlos---------------------------------------*/
 .header{
 	text-align: center;
 	background-color: #9AFF81; /*rgba(0, 197, 218, 0.4);*/
@@ -12,40 +13,6 @@
 	text-align: center;
 	font-family: Arial;
 	font-size: 25px;
-}
-
-h1{
-  margin: 0.5em;
-	padding: 0.05em;
-	border-radius: 0.5em;
-  background-color: #9AFF81;
-}
-
-.register{
-  font-family: arial;
-  margin: 1em;
-	padding: 0.05em;
-	border-radius: 1em;
-	background-color: #E9F7E9;
-}
-
-button.register{
-	font-size: 14px;
-	margin: 2em;
-  border: 2px solid #4CAF50;
-  color: black;
-  padding: 7.5px 16px;
-	border-radius: 0.5em;
-  background-color: #94FF81;
-	float: right;
-  cursor: pointer;
-}
-
-button.register:hover {opacity: 0.7}
-
-p.conditions{
-	font-size: 11px;
-	color: grey;
 }
 
 .grid{
@@ -86,6 +53,49 @@ p.conditions{
 }
 
 .LoginButton:hover {opacity: 0.7}
+
+/* ------------------------------Arbeláez-------------------------------------*/
+h1{
+  margin: 0.5em;
+	padding: 0.05em;
+	border-radius: 0.5em;
+  background-color: #9AFF81;
+}
+
+.register{
+  font-family: arial;
+  margin: 1em;
+	padding: 0.05em;
+	border-radius: 1em;
+	background-color: #E9F7E9;
+}
+
+.login{
+	font-family: arial;
+  margin: 1em;
+	padding: 0.05em;
+	border-radius: 1em;
+	background-color: #E9F7E9;
+}
+
+button.customButton{
+	font-size: 14px;
+	margin: 2em;
+  border: 2px solid #4CAF50;
+  color: black;
+  padding: 7.5px 16px;
+	border-radius: 0.5em;
+  background-color: #94FF81;
+	float: right;
+  cursor: pointer;
+}
+
+button.customButton:hover {opacity: 0.7}
+
+p.conditions{
+	font-size: 11px;
+	color: grey;
+}
 
 #modalContainer {
   background-color:rgba(0, 0, 0, 0.3);
