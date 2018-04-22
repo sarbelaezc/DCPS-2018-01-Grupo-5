@@ -21,6 +21,8 @@ export default Controller.extend({
             newEstudiante.save();
             CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
           }else {
+            document.getElementById('password').value = "";
+            document.getElementById('confirmPassword').value = "";
             errorCustomAlert('Las contraseñas deben coincidir');
           }
         }
@@ -39,6 +41,8 @@ export default Controller.extend({
             newProfesor.save();
             CustomAlert('Se ha registrado satisfactoriamente como Profesor');
           }else {
+            document.getElementById('password').value = "";
+            document.getElementById('confirmPassword').value = "";
             errorCustomAlert('Las contraseñas deben coincidir');
           }
         }
@@ -57,6 +61,8 @@ export default Controller.extend({
             newAdministrativo.save();
             CustomAlert('Se ha registrado satisfactoriamente como Administrativo');
           }else {
+            document.getElementById('password').value = "";
+            document.getElementById('confirmPassword').value = "";
             errorCustomAlert('Las contraseñas deben coincidir');
           }
         }
