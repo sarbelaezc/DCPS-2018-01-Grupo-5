@@ -4,10 +4,8 @@ export default Controller.extend({
   actions: {
     cambioVinculacion(vinculacion){
       this.set('vinculacion',vinculacion);
-      console.log(this.get('vinculacion'));
     },
     register(name, email, idNumber, vinculacion, dateOfBirth, password, confirmPassword){
-      console.log(vinculacion);
       if(vinculacion == 'estudiante'){
         if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || password == '' || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
@@ -20,24 +18,48 @@ export default Controller.extend({
               dateOfBirth: new Date(this.dateOfBirth),
               password: this.password
             });
-            console.log(dateOfBirth);
             newEstudiante.save();
-            CustomAlert('msgExito');
+            CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
           }else {
             errorCustomAlert('Las contraseñas deben coincidir');
           }
         }
       }else if (vinculacion == 'profesor') {
-        var newProfesor = this.store.createRecord('profesor',{
-          name: this.name,
-          email: this.email + '@unal.edu.co',
-          idNumber: this.idNumber,
-          dateOfBirth: new Date(this.dateOfBirth),
-          password: this.password
-        });
-        newProfesor.save();
+        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || password == '' || confirmPassword == '') {
+          errorCustomAlert('Debes completar todos los campos antes de completar el registro');
+        }else {
+          if (password == confirmPassword) {
+            var newProfesor = this.store.createRecord('profesor',{
+              name: this.name,
+              email: this.email + '@unal.edu.co',
+              idNumber: this.idNumber,
+              dateOfBirth: new Date(this.dateOfBirth),
+              password: this.password
+            });
+            newProfesor.save();
+            CustomAlert('Se ha registrado satisfactoriamente como Profesor');
+          }else {
+            errorCustomAlert('Las contraseñas deben coincidir');
+          }
+        }
       }else if (vinculacion == 'administrativo') {
-        console.log('not yet');
+        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || password == '' || confirmPassword == '') {
+          errorCustomAlert('Debes completar todos los campos antes de completar el registro');
+        }else {
+          if (password == confirmPassword) {
+            var newAdministrativo = this.store.createRecord('administrativo',{
+              name: this.name,
+              email: this.email + '@unal.edu.co',
+              idNumber: this.idNumber,
+              dateOfBirth: new Date(this.dateOfBirth),
+              password: this.password
+            });
+            newAdministrativo.save();
+            CustomAlert('Se ha registrado satisfactoriamente como Administrativo');
+          }else {
+            errorCustomAlert('Las contraseñas deben coincidir');
+          }
+        }
       }else if (vinculacion == undefined) {
         errorCustomAlert('Debe seleccionar un tipo de vinculación');
       }

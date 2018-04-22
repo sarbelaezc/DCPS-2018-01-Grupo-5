@@ -1,19 +1,25 @@
 <div class='register'>
-  <h1>Regístrate</h1>
+  <h1>
+    Regístrate
+  </h1>
 
-  <p>Nombre completo:
+  <p>
+    Nombre completo:
     {{input type='text' value=name}}
   </p>
 
-  <p>Correo institucional:
+  <p>
+    Correo institucional:
     {{input type='text' value=email}} @unal.edu.co
   </p>
 
-  <p>Documento de identificación:
+  <p>
+    Documento de identificación:
     {{input type='number' value=idNumber}}
   </p>
 
-  <p>Tipo de vinculación:
+  <p>
+    Tipo de vinculación:
     <select onchange={{action 'cambioVinculacion' value='target.value'}}>
       <option disabled selected> --Elija una opción-- </option>
       <option value="administrativo">Empleado Administrativo</option>
@@ -22,22 +28,27 @@
     </select>
   </p>
 
-  <p>Fecha de nacimiento:
+  <p>
+    Fecha de nacimiento:
     {{input type='date' value=dateOfBirth}}
   </p>
 
-  <p>Contraseña:
+  <p>
+    Contraseña:
     {{input type='password' value=password}}
   </p>
 
-  <p>Confirmar contraseña:
+  <p>
+    Confirmar contraseña:
     {{input type='password' value=confirmPassword}}
   </p>
 
   <p class='conditions'>* Todos los campos son obligatorios</p>
 
   <p>
-    <button class='register' type='button'  {{action 'register' name email idNumber vinculacion dateOfBirth password confirmPassword}}> Registrar </button>
+    <button class='register' type='button'  {{action 'register' name email idNumber vinculacion dateOfBirth password confirmPassword}}>
+      Registrar
+    </button>
   </p>
 </div>
 {{outlet}}
