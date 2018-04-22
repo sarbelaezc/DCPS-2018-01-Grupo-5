@@ -1,5 +1,5 @@
 <div class="login">
-  <h1>
+  <h1 class="title">
     Inicia Sesión
   </h1>
   <p>
@@ -9,7 +9,7 @@
 
   <p>
     Contraseña:
-    {{input type="password" value=password}}
+    {{input type="password" id='password' value=password}}
   </p>
   <p>
     <button class='customButton' type="button" {{action 'login' email password}}>

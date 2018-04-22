@@ -7,7 +7,7 @@ export default Controller.extend({
     },
     register(name, email, idNumber, vinculacion, dateOfBirth, password, confirmPassword){
       if(vinculacion == 'estudiante'){
-        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || password == '' || confirmPassword == '') {
+        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
         }else {
           if (password == confirmPassword) {
@@ -27,7 +27,7 @@ export default Controller.extend({
           }
         }
       }else if (vinculacion == 'profesor') {
-        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || password == '' || confirmPassword == '') {
+        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
         }else {
           if (password == confirmPassword) {
@@ -47,7 +47,7 @@ export default Controller.extend({
           }
         }
       }else if (vinculacion == 'administrativo') {
-        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || password == '' || confirmPassword == '') {
+        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
         }else {
           if (password == confirmPassword) {
