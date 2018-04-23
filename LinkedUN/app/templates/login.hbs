@@ -17,4 +17,11 @@
     </button>
   </p>
 </div>
+
+<section>
+{{#each model.users as |users|}}
+  <div>{{users.name}} {{users.email}} {{users.password}}</div>
+{{/each}}
+</section>
+
 {{outlet}}
