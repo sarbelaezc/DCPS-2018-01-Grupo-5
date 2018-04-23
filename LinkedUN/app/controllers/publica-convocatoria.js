@@ -1,34 +1,35 @@
 import Controller from '@ember/controller';
 
-var validation = false;
-
 export default Controller.extend({
   actions: {
-    login(email, password){
-      this.get('model.users').forEach((user)=>{
-        if (this.email == user.email & this.password == user.password) {
-          localStorage.setItem('email', user.email);
-          localStorage.setItem('password', user.password);
-          validation = true;
-        }
-      });
-      if (validation == true) {
-        console.log(localStorage.getItem('email'));
-        console.log(localStorage.getItem('password'));
-        CustomAlert('Se ha iniciado sesión exitosamente');
-        validation = false;
+    publish(department, name, career, places, hourlyintensity, bonding_time, remuneration, required_percent, activities, site, schedule){
+      if (department==''||name==''||career==''||places==''||hourlyintensity==''||bonding_time==''||remuneration==''||required_percent==''||activities==''||site==''||schedule==''||schedule==undefined) {
+        errorCustomAlert('Debes completar todos los campos antes de completar la publicación');
       }else {
-        document.getElementById('password').value = "";
-        errorCustomAlert('Correo institucional y/o contraseña incorrectos');
+        var newConvocatoria = this.store.createRecord('convocatoria',{
+          department: this.department,
+          name: this.name,
+          career: this.career,
+          places: this.places,
+          hourlyintensity: this.hourlyintensity,
+          bonding_time: this.bonding_time,
+          remuneration: this.remuneration,
+          required_percent: this.required_percent,
+          activities: this.activities,
+          site: this.site,
+          schedule: this.schedule
+        });
+        newConvocatoria.save();
+        CustomAlert('Se ha publicado satisfactoriamente la convocatoria, espere la validación de un adminsitrativo')
       }
-    },
-  },
+    }
+  }
 });
 
 // -----------------------------------------------------------------------------
 //PopUp
 function CustomAlert(txt) {
-  var ALERT_TITLE = "Inicio de sesión exitoso!";
+  var ALERT_TITLE = "Publicación satisfactoria!";
   var ALERT_BUTTON_TEXT = "Ok";
   var mObj,alertObj,h1,msg,btn;
 

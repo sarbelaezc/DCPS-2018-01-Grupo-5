@@ -1,5 +1,7 @@
 import Controller from '@ember/controller';
 
+var validation = true;
+
 export default Controller.extend({
   actions: {
     cambioVinculacion(vinculacion){
@@ -11,15 +13,24 @@ export default Controller.extend({
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
         }else {
           if (password == confirmPassword) {
-            var newEstudiante = this.store.createRecord('estudiante',{
-              name: this.name,
-              email: this.email + '@unal.edu.co',
-              idNumber: this.idNumber,
-              dateOfBirth: new Date(this.dateOfBirth),
-              password: this.password
+            this.get('model.users').forEach((user)=>{
+              if (user.email == (this.email)+'@unal.edu.co') {
+                errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');
+                document.getElementById('email').value = "";
+                validation = false;
+              }
             });
-            newEstudiante.save();
-            CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
+            if (validation == true) {
+              var newEstudiante = this.store.createRecord('estudiante',{
+                name: this.name,
+                email: this.email + '@unal.edu.co',
+                idNumber: this.idNumber,
+                dateOfBirth: new Date(this.dateOfBirth),
+                password: this.password
+              });
+              newEstudiante.save();
+              CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
+            }
           }else {
             document.getElementById('password').value = "";
             document.getElementById('confirmPassword').value = "";
@@ -31,15 +42,24 @@ export default Controller.extend({
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
         }else {
           if (password == confirmPassword) {
-            var newProfesor = this.store.createRecord('profesor',{
-              name: this.name,
-              email: this.email + '@unal.edu.co',
-              idNumber: this.idNumber,
-              dateOfBirth: new Date(this.dateOfBirth),
-              password: this.password
+            this.get('model.users').forEach((user)=>{
+              if (user.email == (this.email)+'@unal.edu.co') {
+                errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');
+                document.getElementById('email').value = "";
+                validation = false;
+              }
             });
-            newProfesor.save();
-            CustomAlert('Se ha registrado satisfactoriamente como Profesor');
+            if (validation == true) {
+              var newProfesor = this.store.createRecord('profesor',{
+                name: this.name,
+                email: this.email + '@unal.edu.co',
+                idNumber: this.idNumber,
+                dateOfBirth: new Date(this.dateOfBirth),
+                password: this.password
+              });
+              newProfesor.save();
+              CustomAlert('Se ha registrado satisfactoriamente como Profesor');
+            }
           }else {
             document.getElementById('password').value = "";
             document.getElementById('confirmPassword').value = "";
@@ -51,15 +71,24 @@ export default Controller.extend({
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
         }else {
           if (password == confirmPassword) {
-            var newAdministrativo = this.store.createRecord('administrativo',{
-              name: this.name,
-              email: this.email + '@unal.edu.co',
-              idNumber: this.idNumber,
-              dateOfBirth: new Date(this.dateOfBirth),
-              password: this.password
+            this.get('model.users').forEach((user)=>{
+              if (user.email == (this.email)+'@unal.edu.co') {
+                errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');
+                document.getElementById('email').value = "";
+                validation = false;
+              }
             });
-            newAdministrativo.save();
-            CustomAlert('Se ha registrado satisfactoriamente como Administrativo');
+            if (validation == true) {
+              var newAdministrativo = this.store.createRecord('administrativo',{
+                name: this.name,
+                email: this.email + '@unal.edu.co',
+                idNumber: this.idNumber,
+                dateOfBirth: new Date(this.dateOfBirth),
+                password: this.password
+              });
+              newAdministrativo.save();
+              CustomAlert('Se ha registrado satisfactoriamente como Administrativo');
+            }
           }else {
             document.getElementById('password').value = "";
             document.getElementById('confirmPassword').value = "";
