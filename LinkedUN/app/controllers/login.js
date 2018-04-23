@@ -1,11 +1,27 @@
 import Controller from '@ember/controller';
 
+var validation = false;
+
 export default Controller.extend({
   actions: {
     login(email, password){
-
+      this.get('model.users').forEach((user)=>{
+        if (this.email == user.email & this.password == user.password) {
+          localStorage.setItem('email', this.email);
+          localStorage.setItem('password', this.password);
+          validation = true;
+        }
+      });
+      if (validation == true) {
+        console.log(localStorage.getItem('email'));
+        console.log(localStorage.getItem('password'));
+        CustomAlert('Se ha iniciado sesión exitosamente');
+        validation = false;
+      }else {
+        errorCustomAlert('Nombre de usuario o contraseña incorrectos');
+      }
     },
-  }
+  },
 });
 
 // -----------------------------------------------------------------------------
