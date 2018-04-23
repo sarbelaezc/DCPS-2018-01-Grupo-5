@@ -80,7 +80,7 @@ h1.title{
 
 button.customButton{
 	font-size: 14px;
-	margin: 2em;
+	margin: 1em;
   border: 2px solid #4CAF50;
   color: black;
   padding: 0.25em;
@@ -90,11 +90,37 @@ button.customButton{
   cursor: pointer;
 }
 
+button.customButtonNonFloat{
+	font-size: 14px;
+	margin: 1em;
+  border: 2px solid #4CAF50;
+  color: black;
+  padding: 0.25em;
+	border-radius: 0.5em;
+  background-color: #94FF81;
+  cursor: pointer;
+}
+
 button.customButton:hover {opacity: 0.7}
 
 p.conditions{
 	font-size: 11px;
 	color: grey;
+}
+
+table.convocatorias{
+	background-color: #E9F7E9;
+}
+
+td.places{
+	text-align: center;
+}
+
+th.title{
+	border: 1px solid green;
+	color: black;
+	padding: 10px 15px;
+	background-color: #9AFF81;
 }
 
 #modalContainer {

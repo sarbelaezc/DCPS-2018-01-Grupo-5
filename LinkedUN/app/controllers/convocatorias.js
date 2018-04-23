@@ -5,5 +5,8 @@ export default Controller.extend({
     apply(){
       //inserte acá código de aplicar convocatoria
     },
+    search(){
+      //inserte código de buscar convocatoria
+    }
   }
 });
