@@ -18,7 +18,8 @@ export default Controller.extend({
         CustomAlert('Se ha iniciado sesión exitosamente');
         validation = false;
       }else {
-        errorCustomAlert('Nombre de usuario o contraseña incorrectos');
+        document.getElementById('password').value = "";
+        errorCustomAlert('Nombre de usuario y/o contraseña incorrectos');
       }
     },
   },
