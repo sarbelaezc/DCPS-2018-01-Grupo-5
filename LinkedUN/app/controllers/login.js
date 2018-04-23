@@ -7,8 +7,8 @@ export default Controller.extend({
     login(email, password){
       this.get('model.users').forEach((user)=>{
         if (this.email == user.email & this.password == user.password) {
-          localStorage.setItem('email', this.email);
-          localStorage.setItem('password', this.password);
+          localStorage.setItem('email', user.email);
+          localStorage.setItem('password', user.password);
           validation = true;
         }
       });
@@ -19,7 +19,7 @@ export default Controller.extend({
         validation = false;
       }else {
         document.getElementById('password').value = "";
-        errorCustomAlert('Nombre de usuario y/o contraseña incorrectos');
+        errorCustomAlert('Correo institucional y/o contraseña incorrectos');
       }
     },
   },
