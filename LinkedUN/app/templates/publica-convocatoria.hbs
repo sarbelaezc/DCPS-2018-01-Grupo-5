@@ -1,0 +1,69 @@
+<div class='register'>
+  <h1 class="title">
+    Publica tu convocatoria
+  </h1>
+
+  <p>
+    Departamento al que pertenece:
+    {{input type='text' value=department}}
+  </p>
+
+  <p>
+    Nombre de la convocatoria:
+    {{input type='text' value=name}}
+  </p>
+
+  <p>
+    Carreras afines:
+    {{input type='text' value=career}}
+  </p>
+
+  <p>
+    Plazas disponibles:
+    {{input type='number' value=places}}
+  </p>
+
+  <p>
+    Intensidad horaria:
+    {{input type='text' value=hourlyintensity}}
+  </p>
+
+  <p>
+    Tiempo de vinculación:
+    {{input type='text' value=bonding_time}}
+  </p>
+
+  <p>
+    Remuneración:
+    {{input type='text' value=remuneration}}
+  </p>
+
+  <p>
+    Porcentaje de avance requerido:
+    {{input type='number' value=required_percent}} %
+  </p>
+
+  <p>
+    Actividades a desarrollar:
+    {{input type='text' value=activities}}
+  </p>
+
+  <p>
+    Lugar:
+    {{input type='text' value=site}}
+  </p>
+
+  <p>
+    Horario:
+    {{input type='text' value=schedule}}
+  </p>
+
+  <p class='conditions'>* Todos los campos son obligatorios</p>
+
+  <p>
+    <button class='customButton' type='button' {{action 'publish' department name career places hourlyintensity bonding_time remuneration required_percent activities site schedule}}>
+      Publicar
+    </button>
+  </p>
+</div>
+{{outlet}}
