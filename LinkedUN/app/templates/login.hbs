@@ -1,0 +1,27 @@
+<div class="login">
+  <h1 class="title">
+    Inicia Sesión
+  </h1>
+  <p>
+    Correo institucional:
+    {{input type="text" value=email}}
+  </p>
+
+  <p>
+    Contraseña:
+    {{input type="password" id='password' value=password}}
+  </p>
+  <p>
+    <button class='customButton' type="button" {{action 'login' email password}}>
+      Aceptar
+    </button>
+  </p>
+</div>
+
+<section>
+{{#each model.users as |users|}}
+  <div>{{users.email}} {{users.password}}</div>
+{{/each}}
+</section>
+
+{{outlet}}
