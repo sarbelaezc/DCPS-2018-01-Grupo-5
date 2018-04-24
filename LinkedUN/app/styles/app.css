@@ -54,6 +54,17 @@
 
 .LoginButton:hover {opacity: 0.7}
 
+.footer {
+    position: fixed;
+    font-size: 18px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #9AFF81;
+    color: white;
+    text-align: center;
+}
+
 /* ------------------------------Arbeláez-------------------------------------*/
 h1.title{
   margin: 0.5em;
