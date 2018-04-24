@@ -67,7 +67,7 @@
  
 }
 .gridfooter{
-	margin: 0.5em;
+	margin: 0.2em;
 	display: grid;
 	grid-template-columns: 1.5fr 3fr 1.5fr;
 	color: black;
