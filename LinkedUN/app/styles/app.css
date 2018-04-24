@@ -42,17 +42,19 @@
 }
 
 .LoginButton{
-	align-items: right;
+	font-family: Arial;
+	text-align: : right;
 	text-decoration: none;
 	font-size: 16px;
-	border: 1px solid green;
+	border: 0px solid green;
 	color: black;
 	padding: 10px 15px;
 	background-color: #9AFF81;
-	float: right;
+	float: right;	
 }
 
 .LoginButton:hover {opacity: 0.7}
+
 
 .footer {
     position: fixed;
@@ -62,9 +64,23 @@
     width: 100%;
     background-color: #9AFF81;
     color: white;
-    text-align: center;
+ 
 }
-
+.gridfooter{
+	margin: 0.5em;
+	display: grid;
+	grid-template-columns: 1.5fr 3fr 1.5fr;
+	color: black;
+	font-family: Arial;
+	font-size: 17px;	
+}
+.centergrid{
+	text-align: center;
+	font-size: 20px;
+}
+.rightgrid{
+	text-align: right;
+}
 /* ------------------------------Arbeláez-------------------------------------*/
 h1.title{
   margin: 0.5em;
