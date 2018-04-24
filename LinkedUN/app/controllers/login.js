@@ -17,6 +17,7 @@ export default Controller.extend({
         console.log(localStorage.getItem('password'));
         CustomAlert('Se ha iniciado sesión exitosamente');
         validation = false;
+        this.transitionToRoute('convocatorias');
       }else {
         document.getElementById('password').value = "";
         errorCustomAlert('Correo institucional y/o contraseña incorrectos');
@@ -103,3 +104,4 @@ function errorCustomAlert(txt) {
 function removeCustomAlert() {
   document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"));
 }
+
