@@ -50,7 +50,7 @@
 	color: black;
 	padding: 10px 15px;
 	background-color: #9AFF81;
-	float: right;	
+	float: right;
 }
 
 .LoginButton:hover {opacity: 0.7}
@@ -64,7 +64,7 @@
     width: 100%;
     background-color: #9AFF81;
     color: white;
- 
+
 }
 .gridfooter{
 	margin: 0.2em;
@@ -72,7 +72,7 @@
 	grid-template-columns: 1.5fr 3fr 1.5fr;
 	color: black;
 	font-family: Arial;
-	font-size: 17px;	
+	font-size: 17px;
 }
 .centergrid{
 	text-align: center;
@@ -93,6 +93,10 @@ h1.title{
 	padding: 0.05em;
 	border-radius: 0.5em;
   background-color: #9AFF81;
+}
+
+img.logo{
+	float: left;
 }
 
 .register{
