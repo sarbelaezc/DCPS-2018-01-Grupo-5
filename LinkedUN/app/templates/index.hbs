@@ -1,7 +1,7 @@
 	
 	<div class="row" type="row">
-		<a class="LoginButton" href="">Registrarme</a>
-		<a class="LoginButton" 	href="" >Login</a> 		
+		<a class="LoginButton" href="register">Registrarme</a>
+		<a class="LoginButton" 	href="login" >Login</a> 		
 	</div>
 	
 	<br>
@@ -15,7 +15,7 @@
 	  </div>
 	  <div class="rightpanel">Convocatorias Activas <br>
 			{{#each model.convocatorias as |convocatorias|}}
-		    <p>-{{convocatorias.name}}</p>
+		    <li>{{convocatorias.name}}</li>
 			{{/each}}
 	  </div>
 	</div>
