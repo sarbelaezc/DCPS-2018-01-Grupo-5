@@ -5,10 +5,6 @@ export default Route.extend({
     return {
       users: this.store.findAll('estudiante')
     };
-  },
-  afterModel(model, transition){
-  	if (this.controller) {
-  		this.transitionTo('convocatorias');
-  	}
   }
+  
 });
