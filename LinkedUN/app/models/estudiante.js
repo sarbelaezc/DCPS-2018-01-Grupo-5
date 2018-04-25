@@ -12,5 +12,6 @@ export default DS.Model.extend({
   schedule: DS.attr('string',{defaultValue:"null"}),
   percent: DS.attr('number',{defaultValue:0}),
   pa: DS.attr('number',{defaultValue:0}),
-  papa: DS.attr('number',{defaultValue:0})
+  papa: DS.attr('number',{defaultValue:0}),
+  convocatoria: DS.attr('string',{defaultValue:"null"})
 });

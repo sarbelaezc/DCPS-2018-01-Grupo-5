@@ -13,10 +13,9 @@ export default Controller.extend({
         }
       });
       if (validation == true) {
-        console.log(localStorage.getItem('email'));
-        console.log(localStorage.getItem('password'));
         CustomAlert('Se ha iniciado sesión exitosamente');
         validation = false;
+        this.transitionToRoute('convocatorias');
       }else {
         document.getElementById('password').value = "";
         errorCustomAlert('Correo institucional y/o contraseña incorrectos');
