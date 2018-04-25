@@ -13,8 +13,6 @@ export default Controller.extend({
         }
       });
       if (validation == true) {
-        console.log(localStorage.getItem('email'));
-        console.log(localStorage.getItem('password'));
         CustomAlert('Se ha iniciado sesión exitosamente');
         validation = false;
         this.transitionToRoute('convocatorias');
@@ -104,4 +102,3 @@ function errorCustomAlert(txt) {
 function removeCustomAlert() {
   document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"));
 }
-
