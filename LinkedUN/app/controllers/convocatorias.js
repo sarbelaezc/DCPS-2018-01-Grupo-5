@@ -5,8 +5,16 @@ var effective = false;
 
 export default Controller.extend({
   actions: {
-    apply(){
-      //inserte acá código de aplicar convocatoria
+    apply(name){
+      var model = this.get('model');
+
+      var estudiante = model.store.query('estudiante',{
+        equalTo: localStorage.getItem('email')
+      });
+
+      estudiante.set({
+         convocatoria: name
+      });
     },
     search(query){
       this.get('model.convocatorias').forEach((convocatoria)=>{
