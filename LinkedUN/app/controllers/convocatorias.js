@@ -1,5 +1,8 @@
 import Controller from '@ember/controller';
 
+
+var effective = false;
+
 export default Controller.extend({
   actions: {
     apply(name){
@@ -13,8 +16,17 @@ export default Controller.extend({
          convocatoria: name
       });
     },
-    search(){
-      //inserte código de buscar convocatoria
-    }
-  }
+    search(query){
+      this.get('model.convocatorias').forEach((convocatoria)=>{
+        	if (this.query == convocatoria.name) {
+          		localStorage.setItem('query', convocatoria.name);
+        		effective = true;
+        	}
+    	})
+		if (effective == true) {
+			console.log(localStorage.getItem('query'));
+			effective = false;
+		}    
+    },
+  },
 });
