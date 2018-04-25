@@ -1,18 +1,14 @@
+
 <ul class="navbar">
   <li>{{link-to "Inicio" "index"}}</li>
 </ul>
 
-<ul>
-  {{#each convocatoria in model}}
-    <li>{{convocatoria.name}}</li>
-  {{/each}}
-</ul>
+
 
 <p>
-  {{input type='search' value=query}}
+  {{input type='text' value=query}}
   <button class=customButtonNonFloat type='button' {{action 'search' query}}>Buscar</button>
 </p>
-
 
 
 {{#if query}}
@@ -22,14 +18,16 @@
     <th class='title'>Puestos disponibles&emsp;</th>
     <th class='title'>Horario&emsp;</th>
   </tr>
-  {{#each model.convocatorias as |convocatoria|}}
+  {{#each model.convocatorias as |convocatorias|}}
+      {{#if (search-Helper convocatoria.name query)}}
       <tr>
         <td>{{convocatorias.name}}</td>
         <td class='places'>{{convocatorias.places}}</td>
         <td>{{convocatorias.schedule}}</td>
         <td><button class='customButton' {{action 'aply' name}}>Aplicar</button></td>
       </tr>
-    {{/each}}
+      {{/if}}
+  {{/each}}
 </table>
 
 {{else}}
@@ -45,7 +43,7 @@
       <td>{{convocatorias.name}}</td>
       <td class='places'>{{convocatorias.places}}</td>
       <td>{{convocatorias.schedule}}</td>
-      <td><button class='customButton' {{action 'apply' name}}>Aplicar</button></td>
+      <td><button class='customButton' {{action 'aply' name}}>Aplicar</button></td>
     </tr>
   {{/each}}
 </table>
@@ -54,3 +52,5 @@
 
 
 {{outlet}}
+
+
