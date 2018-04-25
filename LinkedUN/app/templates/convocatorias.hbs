@@ -9,7 +9,7 @@
 </ul>
 
 <p>
-  {{input type='text' value=query}}
+  {{input type='search' value=query}}
   <button class=customButtonNonFloat type='button' {{action 'search' query}}>Buscar</button>
 </p>
 
@@ -45,7 +45,7 @@
       <td>{{convocatorias.name}}</td>
       <td class='places'>{{convocatorias.places}}</td>
       <td>{{convocatorias.schedule}}</td>
-      <td><button class='customButton' {{action 'aply' name}}>Aplicar</button></td>
+      <td><button class='customButton' {{action 'apply' name}}>Aplicar</button></td>
     </tr>
   {{/each}}
 </table>
