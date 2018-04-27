@@ -1,11 +1,14 @@
 import { helper } from '@ember/component/helper';
 
-export function searchHelper(var1, var2, params) {
+export function searchHelper(var1, var2) {
   if(var1!=var2) {
-        return params.inverse(this);
+        return null;
     } else {
-        return params.fn(this);
+        localStorage.setItem('query', var1);
+        console.log(localStorage.getItem('query'));
+        return true;
     }
+
 }
 
 export default helper(searchHelper);
