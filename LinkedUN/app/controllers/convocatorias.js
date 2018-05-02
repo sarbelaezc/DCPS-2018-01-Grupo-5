@@ -1,20 +1,27 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 
 var effective = false;
 
 export default Controller.extend({
-  actions: {
-    apply(name){
-      var model = this.get('model');
+  filteredConvocatorias: computed('model.convocatorias.@each.name', 'query', function() {
+  	const query = this.get('query');
+    if (query && query.length > 0) {
+      return this.get('model.convocatorias').filterBy('name', query);
+    }
+    return this.get('model.convocatorias');
+  }),
 
-      var estudiante = model.store.query('estudiante',{
+  actions: {
+    apply(convocatoria){
+
+      const estudiante = this.store.query('estudiante',{
         equalTo: localStorage.getItem('email')
       });
+      estudiante.get('convocatorias').pushObject(convocatoria);
+      estudiante.save();
 
-      estudiante.set({
-         convocatoria: name
-      });
     },
     search(query){
       this.get('model.convocatorias').forEach((convocatoria)=>{

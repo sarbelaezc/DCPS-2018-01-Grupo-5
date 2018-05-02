@@ -12,4 +12,5 @@ export default DS.Model.extend({
   activities: DS.attr('string'),
   site: DS.attr('string'),
   schedule: DS.attr('string'),
+  estudiantes: DS.hasMany('estudiante'),
 });
