@@ -10,7 +10,13 @@ export default Controller.extend({
     return this.get('model.convocatorias');
   }),
 
-  // activeUser: this.get('model.estudiantes').filterBy('email', localStorage.getItem('email')),
+  activeUser: computed('model.estudiantes.@each.email', function() {
+    const email = localStorage.getItem('email');
+    if (email && email.length > 0) {
+      console.log(this.get('model.estudiantes').filterBy('email', email).name);
+      return this.get('model.estudiantes').filterBy('email', email);
+    }
+  }),
 
   actions: {
     apply(convocatoria){
