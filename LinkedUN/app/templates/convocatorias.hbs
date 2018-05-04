@@ -4,7 +4,7 @@
 </ul>
 
 <p>
-  {{input type='text' value=query}}
+  {{input type='search' placeholder='Buscar' value=query}}
   {{!--<button class=customButtonNonFloat type='button' {{action 'search' query}}>Buscar</button>--}}
 </p>
 
@@ -16,7 +16,7 @@
     <th class='title'>Horario&emsp;</th>
     <th></th>
   </tr>
-  
+
   {{#each filteredConvocatorias as |convocatoria|}}
     <tr>
       <td>{{convocatoria.name}}</td>
@@ -26,4 +26,20 @@
     </tr>
   {{/each}}
 </table>
+
+<div class='perfil'>
+  <h1>Tu perfil:</h1>
+  <p>Nombre: <input type='text' placeholder={{activeUser.name}} disabled='true'></p>
+  <p>Correo: <input type='text' placeholder={{activeUser.email}} disabled='true'></p>
+  <p>Identificación: <input type='number' placeholder={{activeUser.idNumber}} disabled='true'></p>
+  <p>Fecha de nacimiento: <input type='date' placeholder={{activeUser.dateOfBirth}} disabled='true'></p>
+  <p>Teléfono: <input type='number' placeholder={{activeUser.phone}} disabled='true'></p>
+  <p>Facultad: <input type='text' placeholder={{activeUser.faculty}} disabled='true'></p>
+  <p>Carrera: <input type='text' placeholder={{activeUser.career}} disabled='true'></p>
+  <p>Horario: <input type='text' placeholder={{activeUser.schedule}} disabled='true'></p>
+  <p>Porcentaje de avance: <input type='number' placeholder={{activeUser.percent}} disabled='true'></p>
+  <p>Promedio Academico: <input type='number' placeholder={{activeUser.pa}} disabled='true'></p>
+  <p>P.A.P.A.: <input type='number' placeholder={{activeUser.papa}} disabled='true'></p>
+</div>
+
 {{outlet}}

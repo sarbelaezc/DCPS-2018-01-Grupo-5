@@ -1,24 +1,22 @@
-	
-	<div class="row" type="row">
-		<a class="LoginButton" href="register">Registrarme</a>
-		<a class="LoginButton" 	href="login" >Login</a> 		
-	</div>
-	
-	<br>
-	<div class="grid" inline-grid display> <!-- contenedor -->
-	  <div class="leftpanel">Menú <br>
-	  	{{link-to "Inicio" "index"}}
-			
-	  </div> <!-- cada uno de los ítems del grid -->
-	  <div class="centerpanel">¿Qué es LinkedUN?
-			<p>LinkedUN es la plataforma para publicar, registrar y participar en convocatorias de monitorías de la Universidad Nacional de Colombia sede Medellín</p>		
-	  </div>
-	  <div class="rightpanel">Convocatorias Activas <br>
-			{{#each model.convocatorias as |convocatorias|}}
-		    <li>{{convocatorias.name}}</li>
-			{{/each}}
-	  </div>
-	</div>
-	
-{{outlet}}
+<div class="row" type="row">
+	<a class="LoginButton" href="register">Registrarme</a>
+	<a class="LoginButton" 	href="login" >Login</a>
+</div>
 
+<br>
+<div class="grid" inline-grid display> <!-- contenedor -->
+  <div class="leftpanel">Menú <br>
+  	{{link-to "Inicio" "index"}}
+  </div> <!-- cada uno de los ítems del grid -->
+
+  <div class="centerpanel">¿Qué es LinkedUN?
+		<p>LinkedUN es la plataforma para publicar, registrar y participar en convocatorias de monitorías de la Universidad Nacional de Colombia sede Medellín</p>
+  </div>
+	{{!-- <div class="rightpanel">Convocatorias Activas <br>
+		{{#each model.convocatorias as |convocatorias|}}
+	    <li>{{convocatorias.name}}</li>
+		{{/each}}
+  </div> --}}
+</div>
+
+{{outlet}}

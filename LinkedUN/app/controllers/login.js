@@ -8,7 +8,6 @@ export default Controller.extend({
       this.get('model.users').forEach((user)=>{
         if (this.email == user.email & this.password == user.password) {
           localStorage.setItem('email', user.email);
-          localStorage.setItem('password', user.password);
           validation = true;
         }
       });
