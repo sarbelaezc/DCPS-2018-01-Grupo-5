@@ -29,6 +29,7 @@ export default Controller.extend({
                 password: this.password
               });
               newEstudiante.save();
+              this.transitionToRoute('login');
               CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
             }
           }else {
@@ -58,6 +59,7 @@ export default Controller.extend({
                 password: this.password
               });
               newProfesor.save();
+              this.transitionToRoute('login');
               CustomAlert('Se ha registrado satisfactoriamente como Profesor');
             }
           }else {
@@ -87,6 +89,7 @@ export default Controller.extend({
                 password: this.password
               });
               newAdministrativo.save();
+              this.transitionToRoute('login');
               CustomAlert('Se ha registrado satisfactoriamente como Administrativo');
             }
           }else {
