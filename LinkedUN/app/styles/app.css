@@ -2,7 +2,7 @@
 .header{
 	text-align: center;
 	background-color: #9AFF81; /*rgba(0, 197, 218, 0.4);*/
-	margin: 1em;
+	margin-bottom: 0.3em;
 	padding: 0.05em;
 	border-radius: 1em;
 	font-size: 30px;
@@ -115,6 +115,11 @@ img.logo{
 	background-color: #E9F7E9;
 }
 
+.perfil{
+	background-color: #E9F7E9;
+	float: right;
+}
+
 button.customButton{
 	font-size: 14px;
 	margin: 1em;
@@ -147,6 +152,7 @@ p.conditions{
 
 table.convocatorias{
 	background-color: #E9F7E9;
+	float: left;
 }
 
 td.places{
