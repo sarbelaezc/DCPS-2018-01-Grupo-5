@@ -15,32 +15,6 @@
 	font-size: 25px;
 }
 
-.grid{
-	margin: 2em;
-	display: grid;
-	grid-template-columns: 1fr 3fr 1.5fr;
-	grid-auto-rows: auto;
-	font-family: Arial;
-	font-size: 20px;
-	background-color: #e9f7e9;
-	border-radius: 1em;
-}
-
-.leftpanel{
-	float: left;
-	text-align: center;
-}
-
-.centerpanel{
-	float: center;
-	text-align: center;
-}
-
-.rightpanel{
-	float: right;
-	text-align: center;
-}
-
 .footer {
     position: fixed;
     font-size: 18px;
@@ -139,6 +113,15 @@ img.logo{
 	float: left;
 }
 
+.about{
+	background-color: #E9F7E9;
+	color: black;
+	padding: 10px 15px;
+	border-radius: 1em;
+	margin: 1em;
+	text-align: center;
+}
+
 .register{
   font-family: arial;
   margin: 1em;
@@ -155,7 +138,7 @@ img.logo{
 	background-color: #E9F7E9;
 }
 
-.perfil{
+.profile{
 	background-color: #E9F7E9;
 	float: right;
 }
