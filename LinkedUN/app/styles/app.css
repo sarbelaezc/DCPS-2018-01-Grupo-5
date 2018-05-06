@@ -101,6 +101,7 @@
 	 text-align: left;
  }
 }
+
 /* ------------------------------Arbeláez-------------------------------------*/
 h1.title{
   margin: 0.5em;
@@ -166,7 +167,9 @@ button.customButtonNonFloat{
   cursor: pointer;
 }
 
-button.customButton:hover {opacity: 0.7}
+button.customButton:hover {
+	opacity: 0.7
+}
 
 p.conditions{
 	font-size: 11px;
