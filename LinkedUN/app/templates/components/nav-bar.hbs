@@ -1,11 +1,17 @@
 {{!-- Barra de navegacion superior --}}
 <div class="topnav" id="myTopnav">
+
   {{#link-to 'index'}} Inicio {{/link-to}}
-  {{#link-to 'convocatorias'}} Convocatorias {{/link-to}}
-  {{#link-to 'register'}} Regístrate {{/link-to}}
-  {{#link-to 'login'}} Login {{/link-to}}
+  {{#link-to 'convocatories'}} Convocatories {{/link-to}}
+
+  <div class="account">
+    {{#link-to 'register'}} Regístrate {{/link-to}}
+    {{#link-to 'login'}} Login {{/link-to}}
+  </div>
+
   {{!-- boton opcional que cambia el tipo de barra si la pantalla es muy pequeña --}}
   <a href="javascript:void(0);" class="icon" {{action 'responsive'}}>&#9776;</a>
+
 </div>
 
 {{yield}}
