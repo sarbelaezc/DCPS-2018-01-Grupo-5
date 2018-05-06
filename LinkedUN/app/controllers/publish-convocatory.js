@@ -6,7 +6,7 @@ export default Controller.extend({
       if (department==''||name==''||career==''||places==''||hourlyintensity==''||bonding_time==''||remuneration==''||required_percent==''||activities==''||site==''||schedule==''||schedule==undefined) {
         errorCustomAlert('Debes completar todos los campos antes de completar la publicación');
       }else {
-        var newConvocatoria = this.store.createRecord('convocatoria',{
+        var newConvocatory = this.store.createRecord('convocatory',{
           department: this.department,
           name: this.name,
           career: this.career,
@@ -19,7 +19,7 @@ export default Controller.extend({
           site: this.site,
           schedule: this.schedule
         });
-        newConvocatoria.save();
+        newConvocatory.save();
         CustomAlert('Se ha publicado satisfactoriamente la convocatoria, espere la validación de un adminsitrativo')
       }
     }
