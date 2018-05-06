@@ -21,14 +21,14 @@ export default Controller.extend({
               }
             });
             if (validation == true) {
-              var newEstudiante = this.store.createRecord('estudiante',{
+              var newStudent = this.store.createRecord('student',{
                 name: this.name,
                 email: this.email + '@unal.edu.co',
                 idNumber: this.idNumber,
                 dateOfBirth: new Date(this.dateOfBirth),
                 password: this.password
               });
-              newEstudiante.save();
+              newStudent.save();
               this.transitionToRoute('login');
               CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
             }
@@ -51,14 +51,14 @@ export default Controller.extend({
               }
             });
             if (validation == true) {
-              var newProfesor = this.store.createRecord('profesor',{
+              var newProfessor = this.store.createRecord('professor',{
                 name: this.name,
                 email: this.email + '@unal.edu.co',
                 idNumber: this.idNumber,
                 dateOfBirth: new Date(this.dateOfBirth),
                 password: this.password
               });
-              newProfesor.save();
+              newProfessor.save();
               this.transitionToRoute('login');
               CustomAlert('Se ha registrado satisfactoriamente como Profesor');
             }
@@ -81,14 +81,14 @@ export default Controller.extend({
               }
             });
             if (validation == true) {
-              var newAdministrativo = this.store.createRecord('administrativo',{
+              var newAdministrative = this.store.createRecord('administrative',{
                 name: this.name,
                 email: this.email + '@unal.edu.co',
                 idNumber: this.idNumber,
                 dateOfBirth: new Date(this.dateOfBirth),
                 password: this.password
               });
-              newAdministrativo.save();
+              newAdministrative.save();
               this.transitionToRoute('login');
               CustomAlert('Se ha registrado satisfactoriamente como Administrativo');
             }
