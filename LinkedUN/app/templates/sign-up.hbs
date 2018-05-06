@@ -1,0 +1,54 @@
+<div class='register'>
+  <h1 class="title">
+    Regístrate
+  </h1>
+
+  <p>
+    Nombre completo:
+    {{input type='text' value=name}}
+  </p>
+
+  <p>
+    Correo institucional:
+    {{input type='text' id='email' value=email}} @unal.edu.co
+  </p>
+
+  <p>
+    Documento de identificación:
+    {{input type='number' value=idNumber}}
+  </p>
+
+  <p>
+    Tipo de vinculación:
+    <select onchange={{action 'cambioVinculacion' value='target.value'}}>
+      <option disabled selected> --Elija una opción-- </option>
+      <option value="administrativo">Empleado Administrativo</option>
+      <option value="profesor">Profesor Vinculado</option>
+      <option value="estudiante">Estudiante Activo</option>
+    </select>
+  </p>
+
+  <p>
+    Fecha de nacimiento:
+    {{input type='date' value=dateOfBirth}}
+  </p>
+
+  <p>
+    Contraseña:
+    {{input type='password' id='password' value=password}}
+  </p>
+
+  <p>
+    Confirmar contraseña:
+    {{input type='password' id='confirmPassword' value=confirmPassword}}
+  </p>
+
+  <p class='conditions'>* Todos los campos son obligatorios</p>
+
+  <p>
+    <button class='customButton' type='button' {{action 'register' name email idNumber vinculacion dateOfBirth password confirmPassword}}>
+      Registrar
+    </button>
+  </p>
+</div>
+{{outlet}}

@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('login');
   this.route('convocatories');
   this.route('publish-convocatory');
+  this.route('signUp');
 });
 
 export default Router;

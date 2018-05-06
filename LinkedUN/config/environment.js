@@ -28,7 +28,10 @@ module.exports = function(environment) {
       databaseURL: 'https://linked-un.firebaseio.com',
       storageBucket: 'linked-un.appspot.com',
     },
-    
+    torii: {
+      sessionServiceName: 'session'
+    },
+
   };
 
   if (environment === 'development') {
