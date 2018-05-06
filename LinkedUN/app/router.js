@@ -9,8 +9,8 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('register');
   this.route('login');
-  this.route('convocatorias');
   this.route('publica-convocatoria');
+  this.route('convocatories');
 });
 
 export default Router;
