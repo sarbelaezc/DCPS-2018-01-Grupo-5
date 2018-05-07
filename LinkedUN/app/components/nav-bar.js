@@ -1,7 +1,14 @@
 import Component from '@ember/component';
 
 export default Component.extend({
+  session: Ember.inject.service(),
+  beforeModel: function() {
+   return this.get("session").fetch().catch(function() {}); // <--- note that we now return the promise here
+ },
   actions:{
+    signOut: function() {
+      this.get('session').close();
+    },
     responsive() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {

@@ -4,7 +4,7 @@
   </h1>
   <p>
     Correo institucional:
-    {{input type="text" value=email}}
+    {{input type="text" value=email}} @unal.edu.co
   </p>
 
   <p>
@@ -12,7 +12,7 @@
     {{input type="password" id='password' value=password}}
   </p>
   <p>
-    <button class='customButton' type="button" {{action 'login' email password}}>
+    <button class='customButton' type="button" {{action 'signIn' email password}}>
       Aceptar
     </button>
   </p>

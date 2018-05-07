@@ -4,12 +4,10 @@ var validation = true;
 
 export default Controller.extend({
   firebaseApp: Ember.inject.service(),
-  actions: {
-    
-    cambioVinculacion(vinculacion){
+    actions: {
+      cambioVinculacion(vinculacion){
       this.set('vinculacion',vinculacion);
     },
-
     register(name, email, idNumber, vinculacion, dateOfBirth, password, confirmPassword){
       if(vinculacion == 'estudiante'){
         if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || password == undefined || confirmPassword == '') {
@@ -31,6 +29,7 @@ export default Controller.extend({
                 });
                 newStudent.save();
                 this.transitionToRoute('login');
+                this.get('session').close();
                 CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
               }).catch(function(error){
                 errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');

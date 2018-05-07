@@ -1,24 +1,20 @@
 import Controller from '@ember/controller';
-
+import Ember from 'ember';
 var validation = false;
 
 export default Controller.extend({
   actions: {
-    login(email, password){
-      this.get('model.users').forEach((user)=>{
-        if (this.email == user.email & this.password == user.password) {
-          localStorage.setItem('email', user.email);
-          validation = true;
-        }
+    signIn: function(email, password){
+      let validate = false;
+      this.get('session').open('firebase', {
+        provider: 'password',
+        email: email + '@unal.edu.co',
+        password: password,
+      }).then(()=>{
+        this.transitionToRoute('convocatories');
+      }).catch(function(error){
+        errorCustomAlert('Correo y/o contraseña incorrectos');
       });
-      if (validation == true) {
-        CustomAlert('Se ha iniciado sesión exitosamente');
-        validation = false;
-        this.transitionToRoute('convocatorias');
-      }else {
-        document.getElementById('password').value = "";
-        errorCustomAlert('Correo institucional y/o contraseña incorrectos');
-      }
     },
   },
 });

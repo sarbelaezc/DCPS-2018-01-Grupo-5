@@ -51,7 +51,7 @@
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.topnav a, button {
 	 float: left;
 	 display: block;
 	 color: #f2f2f2;
