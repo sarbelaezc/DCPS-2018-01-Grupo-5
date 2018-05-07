@@ -3,6 +3,7 @@ import Controller from '@ember/controller';
 var validation = true;
 
 export default Controller.extend({
+  firebaseApp: Ember.inject.service(),
   actions: {
     cambioVinculacion(vinculacion){
       this.set('vinculacion',vinculacion);
@@ -21,14 +22,18 @@ export default Controller.extend({
               }
             });
             if (validation == true) {
-              var newStudent = this.store.createRecord('student',{
-                name: this.name,
-                email: this.email + '@unal.edu.co',
-                idNumber: this.idNumber,
-                dateOfBirth: new Date(this.dateOfBirth),
-                password: this.password
+              var ref = this.get('firebaseApp').auth();
+              ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password).then((userResponse) =>{
+                  var newStudent = this.store.createRecord('student',{
+                    uId: userResponse.uid,
+                    name: this.name,
+                    email: userResponse.email,
+                    idNumber: this.idNumber,
+                    dateOfBirth: new Date(this.dateOfBirth),
+                    password: this.password
+                  });
+                    newStudent.save();
               });
-              newStudent.save();
               this.transitionToRoute('login');
               CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
             }

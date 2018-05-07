@@ -1,31 +1,26 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
+  firebaseApp: Ember.inject.service(),
   actions:{
     signUp(name, email, idNumber, vinculacion, dateOfBirth, password, confirmPassword){
-      var validate = validate(name, email, idNumber, vinculacion, dateOfBirth, password, confirmPassword);
-      if (validate == true) {
-        let ref = this.get('firebaseApp').auth();
-        ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password).then(function (userData){
-          this.get('session').open('firebase', {
-            provider:'password',
-            'email': email + '@unal.edu.co',
-            'password': password
-          }).then(function(){
+      //var validate = validate(name, email, idNumber, vinculacion, dateOfBirth, password, confirmPassword);
+      //if (validate == true) {
+        var ref = this.get('firebaseApp').auth();
+        ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password).then((userResponse) =>{
             var newStudent = this.store.createRecord('student',{
-              uId: userData.uid,
+              uId: userResponse.uid,
               name: this.name,
-              email: this.email + '@unal.edu.co',
+              email: userResponse.email,
               idNumber: this.idNumber,
               dateOfBirth: new Date(this.dateOfBirth),
               password: this.password
             });
               newStudent.save();
-          });
         });
-        this.transitionToRoute('login');
+        //this.transitionToRoute('login');
         CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
-      }
+      //}
     }
   }
 });

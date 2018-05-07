@@ -20,7 +20,7 @@
 
   <p>
     Tipo de vinculación:
-    <select>
+    <select onchange={{action 'cambioVinculacion' value = 'target.value'}}>
       <option disabled selected> --Elija una opción-- </option>
       <option value="administrativo">Empleado Administrativo</option>
       <option value="profesor">Profesor Vinculado</option>
@@ -46,7 +46,7 @@
   <p class='conditions'>* Todos los campos son obligatorios</p>
 
   <p>
-    <button class='customButton' type='button' {{action 'register' name email idNumber vinculacion dateOfBirth password confirmPassword}}>
+    <button class='customButton' type='button' {{action 'signUp' name email idNumber vinculacion dateOfBirth password confirmPassword}}>
       Registrar
     </button>
   </p>
