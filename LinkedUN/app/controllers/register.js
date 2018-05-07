@@ -5,38 +5,38 @@ var validation = true;
 export default Controller.extend({
   firebaseApp: Ember.inject.service(),
   actions: {
+    
     cambioVinculacion(vinculacion){
       this.set('vinculacion',vinculacion);
     },
+
     register(name, email, idNumber, vinculacion, dateOfBirth, password, confirmPassword){
       if(vinculacion == 'estudiante'){
-        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || confirmPassword == '') {
+        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || password == undefined || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
+        }else if (password & password.length < 6) {
+          errorCustomAlert('La contraseña debe tener almenos 6 carácteres');
         }else {
           if (password == confirmPassword) {
-            this.get('model.users').forEach((user)=>{
-              if (user.email == (this.email)+'@unal.edu.co') {
+            var ref = this.get('firebaseApp').auth();
+            ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password)
+              .then((userResponse) =>{
+                var newStudent = this.store.createRecord('student',{
+                  uId: userResponse.uid,
+                  name: this.name,
+                  email: userResponse.email,
+                  idNumber: this.idNumber,
+                  dateOfBirth: new Date(this.dateOfBirth),
+                  password: this.password
+                });
+                newStudent.save();
+                this.transitionToRoute('login');
+                CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
+              }).catch(function(error){
                 errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');
                 document.getElementById('email').value = "";
-                validation = false;
               }
-            });
-            if (validation == true) {
-              var ref = this.get('firebaseApp').auth();
-              ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password).then((userResponse) =>{
-                  var newStudent = this.store.createRecord('student',{
-                    uId: userResponse.uid,
-                    name: this.name,
-                    email: userResponse.email,
-                    idNumber: this.idNumber,
-                    dateOfBirth: new Date(this.dateOfBirth),
-                    password: this.password
-                  });
-                    newStudent.save();
-              });
-              this.transitionToRoute('login');
-              CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
-            }
+            );
           }else {
             document.getElementById('password').value = "";
             document.getElementById('confirmPassword').value = "";
@@ -44,29 +44,31 @@ export default Controller.extend({
           }
         }
       }else if (vinculacion == 'profesor') {
-        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || confirmPassword == '') {
+        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || password == undefined || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
+        }else if (password & password.length < 6) {
+          errorCustomAlert('La contraseña debe tener almenos 6 carácteres');
         }else {
           if (password == confirmPassword) {
-            this.get('model.users').forEach((user)=>{
-              if (user.email == (this.email)+'@unal.edu.co') {
+            var ref = this.get('firebaseApp').auth();
+            ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password)
+              .then((userResponse) =>{
+                var newProfessor = this.store.createRecord('professor',{
+                  uId: userResponse.uid,
+                  name: this.name,
+                  email: userResponse.email,
+                  idNumber: this.idNumber,
+                  dateOfBirth: new Date(this.dateOfBirth),
+                  password: this.password
+                });
+                newProfessor.save();
+                this.transitionToRoute('login');
+                CustomAlert('Se ha registrado satisfactoriamente como Profesor Vinculado');
+              }).catch(function(error){
                 errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');
                 document.getElementById('email').value = "";
-                validation = false;
               }
-            });
-            if (validation == true) {
-              var newProfessor = this.store.createRecord('professor',{
-                name: this.name,
-                email: this.email + '@unal.edu.co',
-                idNumber: this.idNumber,
-                dateOfBirth: new Date(this.dateOfBirth),
-                password: this.password
-              });
-              newProfessor.save();
-              this.transitionToRoute('login');
-              CustomAlert('Se ha registrado satisfactoriamente como Profesor');
-            }
+            );
           }else {
             document.getElementById('password').value = "";
             document.getElementById('confirmPassword').value = "";
@@ -74,36 +76,38 @@ export default Controller.extend({
           }
         }
       }else if (vinculacion == 'administrativo') {
-        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || confirmPassword == '') {
+        if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || password == undefined || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
+        }else if (password & password.length < 6) {
+          errorCustomAlert('La contraseña debe tener almenos 6 carácteres');
         }else {
           if (password == confirmPassword) {
-            this.get('model.users').forEach((user)=>{
-              if (user.email == (this.email)+'@unal.edu.co') {
+            var ref = this.get('firebaseApp').auth();
+            ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password)
+              .then((userResponse) =>{
+                var newAdministrative = this.store.createRecord('administrative',{
+                  uId: userResponse.uid,
+                  name: this.name,
+                  email: userResponse.email,
+                  idNumber: this.idNumber,
+                  dateOfBirth: new Date(this.dateOfBirth),
+                  password: this.password
+                });
+                newAdministrative.save();
+                this.transitionToRoute('login');
+                CustomAlert('Se ha registrado satisfactoriamente como Profesor Vinculado');
+              }).catch(function(error){
                 errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');
                 document.getElementById('email').value = "";
-                validation = false;
               }
-            });
-            if (validation == true) {
-              var newAdministrative = this.store.createRecord('administrative',{
-                name: this.name,
-                email: this.email + '@unal.edu.co',
-                idNumber: this.idNumber,
-                dateOfBirth: new Date(this.dateOfBirth),
-                password: this.password
-              });
-              newAdministrative.save();
-              this.transitionToRoute('login');
-              CustomAlert('Se ha registrado satisfactoriamente como Administrativo');
-            }
+            );
           }else {
             document.getElementById('password').value = "";
             document.getElementById('confirmPassword').value = "";
             errorCustomAlert('Las contraseñas deben coincidir');
           }
         }
-      }else if (vinculacion == undefined) {
+      }else if (vinculacion == undefined || vinculacion == '') {
         errorCustomAlert('Debe seleccionar un tipo de vinculación');
       }
     },
