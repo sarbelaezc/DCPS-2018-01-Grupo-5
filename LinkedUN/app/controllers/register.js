@@ -14,7 +14,7 @@ export default Controller.extend({
       if(vinculacion == 'estudiante'){
         if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || password == undefined || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
-        }else if (password & password.length < 6) {
+        }else if (password.length < 6) {
           errorCustomAlert('La contraseña debe tener almenos 6 carácteres');
         }else {
           if (password == confirmPassword) {
@@ -46,7 +46,7 @@ export default Controller.extend({
       }else if (vinculacion == 'profesor') {
         if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || password == undefined || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
-        }else if (password & password.length < 6) {
+        }else if (password.length < 6) {
           errorCustomAlert('La contraseña debe tener almenos 6 carácteres');
         }else {
           if (password == confirmPassword) {
@@ -77,7 +77,7 @@ export default Controller.extend({
       }else if (vinculacion == 'administrativo') {
         if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || password == undefined || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
-        }else if (password & password.length < 6) {
+        }else if (password.length < 6) {
           errorCustomAlert('La contraseña debe tener almenos 6 carácteres');
         }else {
           if (password == confirmPassword) {
