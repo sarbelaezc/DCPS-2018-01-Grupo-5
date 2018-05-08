@@ -1,14 +1,16 @@
 import Controller from '@ember/controller';
-
-var validation = true;
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
-  firebaseApp: Ember.inject.service(),
+  firebaseApp: service(),
     actions: {
       cambioVinculacion(vinculacion){
       this.set('vinculacion',vinculacion);
     },
     register(name, email, idNumber, vinculacion, dateOfBirth, password, confirmPassword){
+
+      var ref = this.get('firebaseApp').auth();
+
       if(vinculacion == 'estudiante'){
         if (name == '' || email == '' || idNumber == '' || dateOfBirth == undefined || dateOfBirth == '' || password == '' || password == undefined || confirmPassword == '') {
           errorCustomAlert('Debes completar todos los campos antes de completar el registro');
@@ -16,7 +18,6 @@ export default Controller.extend({
           errorCustomAlert('La contraseña debe tener almenos 6 carácteres');
         }else {
           if (password == confirmPassword) {
-            var ref = this.get('firebaseApp').auth();
             ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password)
               .then((userResponse) =>{
                 var newStudent = this.store.createRecord('student',{
@@ -31,7 +32,7 @@ export default Controller.extend({
                 this.transitionToRoute('login');
                 this.get('session').close();
                 CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
-              }).catch(function(error){
+              }).catch(function(){
                 errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');
                 document.getElementById('email').value = "";
               }
@@ -49,7 +50,6 @@ export default Controller.extend({
           errorCustomAlert('La contraseña debe tener almenos 6 carácteres');
         }else {
           if (password == confirmPassword) {
-            var ref = this.get('firebaseApp').auth();
             ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password)
               .then((userResponse) =>{
                 var newProfessor = this.store.createRecord('professor',{
@@ -63,7 +63,7 @@ export default Controller.extend({
                 newProfessor.save();
                 this.transitionToRoute('login');
                 CustomAlert('Se ha registrado satisfactoriamente como Profesor Vinculado');
-              }).catch(function(error){
+              }).catch(function(){
                 errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');
                 document.getElementById('email').value = "";
               }
@@ -81,7 +81,6 @@ export default Controller.extend({
           errorCustomAlert('La contraseña debe tener almenos 6 carácteres');
         }else {
           if (password == confirmPassword) {
-            var ref = this.get('firebaseApp').auth();
             ref.createUserWithEmailAndPassword((email + '@unal.edu.co'), password)
               .then((userResponse) =>{
                 var newAdministrative = this.store.createRecord('administrative',{
@@ -95,7 +94,7 @@ export default Controller.extend({
                 newAdministrative.save();
                 this.transitionToRoute('login');
                 CustomAlert('Se ha registrado satisfactoriamente como Profesor Vinculado');
-              }).catch(function(error){
+              }).catch(function(){
                 errorCustomAlert('Ya existe una cuenta asociada a ese correo electronico');
                 document.getElementById('email').value = "";
               }

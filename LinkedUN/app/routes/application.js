@@ -1,8 +1,9 @@
 import Route from '@ember/routing/route';
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+
 export default Route.extend({
-  firebaseApp: Ember.inject.service(),
-  session: Ember.inject.service(),
+  firebaseApp: service(),
+  session: service(),
   beforeModel: function() {
    return this.get("session").fetch().catch(function() {}); // <--- note that we now return the promise here
  }
