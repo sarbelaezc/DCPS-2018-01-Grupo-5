@@ -1,6 +1,10 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
+
+  session: service(),
+
   actions: {
     signIn: function(email, password){
       this.get('session').open('firebase', {
@@ -14,6 +18,7 @@ export default Controller.extend({
         errorCustomAlert('Correo y/o contraseña incorrectos');
       });
     },
+    
   },
 });
 

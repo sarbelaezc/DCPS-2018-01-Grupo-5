@@ -13,7 +13,7 @@ export default Controller.extend({
   actions: {
     apply(convocatory){
       const estudiante = this.store.query('student',{
-        equalTo: localStorage.getItem('email')
+        equalTo: this.get('session').email
       });
       estudiante.get('convocatories').pushObject(convocatory);
       estudiante.save();

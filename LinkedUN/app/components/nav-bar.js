@@ -12,7 +12,7 @@ export default Component.extend({
   actions:{
     signOut: function() {
       this.get('session').close();
-    },    
+    },
     responsive() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {
