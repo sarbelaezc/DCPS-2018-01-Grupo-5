@@ -23,7 +23,7 @@
 <div class='profile'>
   <h1>Tu perfil:</h1>
   <p>Nombre: <input type='text' placeholder={{activeUser.name}} disabled='true'></p>
-  <p>Correo: <input type='text' placeholder={{activeUser.email}} disabled='true'></p>
+  <p>Correo: <input type='text' placeholder={{session.currentUser.email}} disabled='true'></p>
   <p>Identificación: <input type='number' placeholder={{activeUser.idNumber}} disabled='true'></p>
   <p>Fecha de nacimiento: <input type='date' placeholder={{activeUser.dateOfBirth}} disabled='true'></p>
   <p>Teléfono: <input type='number' placeholder={{activeUser.phone}} disabled='true'></p>
