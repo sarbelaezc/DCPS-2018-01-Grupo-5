@@ -18,6 +18,9 @@ export default Controller.extend({
       });
       estudiante.get('convocatories').pushObject(convocatory);
       estudiante.save();
+      student.get('convocatories').pushObject(convocatory);
+      // student.set('convocatories', convocatory);
+      student.save();
     },
 
   },
