@@ -12,8 +12,9 @@ export default Controller.extend({
 
   actions: {
     apply(convocatory){
-      const estudiante = this.store.query('student',{
-        equalTo: this.get('session').email
+      const student = this.store.query('student',{
+        orderBy: 'uId',
+        equalTo: this.get('session.currentUser.uid')
       });
       estudiante.get('convocatories').pushObject(convocatory);
       estudiante.save();
