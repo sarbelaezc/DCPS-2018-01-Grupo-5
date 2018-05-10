@@ -16,8 +16,6 @@ export default Controller.extend({
         orderBy: 'uId',
         equalTo: this.get('session.currentUser.uid')
       });
-      estudiante.get('convocatories').pushObject(convocatory);
-      estudiante.save();
       student.get('convocatories').pushObject(convocatory);
       // student.set('convocatories', convocatory);
       student.save();
