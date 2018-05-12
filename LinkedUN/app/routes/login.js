@@ -7,7 +7,7 @@ export default Route.extend({
 
   beforeModel: function() {
     if (this.get('session.isAuthenticated')) {
-      this.transitionTo('index');
+      this.transitionTo('convocatories');
     }
   },
 
