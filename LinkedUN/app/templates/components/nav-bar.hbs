@@ -6,7 +6,7 @@
 
   {{!-- <div class="account"> --}}
     {{#if session.isAuthenticated}}
-      <a href='login' {{action 'signOut'}}> Salir </a>
+      <a {{action 'signOut'}} href='login'> Salir </a>
       {{!-- {{#link-to 'login'}} Salir {{/link-to}} --}}
     {{else}}
       {{#link-to 'register'}} Regístrate {{/link-to}}
