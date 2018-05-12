@@ -20,12 +20,9 @@ export default Controller.extend({
         orderBy: 'uId',
         equalTo: this.get('session.currentUser.uid')
       });
-      console.log(this.get('session.currentUser.uid'));
-      console.log(this.activeUser);
-      console.log(this.activeUser._internalModel.__data.uId);
-      student.get('convocatories').pushObject(convocatory);
+      student.forEach(()=>this.get('convocatories').pushObject(convocatory));
       // student.set('convocatories', convocatory);
-      student.save();
+      student.forEach(()=>this.save());
     },
 
   },
