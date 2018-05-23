@@ -8,7 +8,7 @@ export default Controller.extend({
       this.store.findRecord('student', student[0].id).then(function(student){
         student.set('name', document.getElementById('name').value);
         student.set('career', document.getElementById('career').value);
-        student.set('dateOfBirth', document.getElementById('dateOfBirth').value);
+        student.set('dateOfBirth', new Date(Date.parse(document.getElementById('dateOfBirth').value)));
         student.set('email', document.getElementById('email').value);
         student.set('faculty', document.getElementById('faculty').value);
         student.set('idNumber', document.getElementById('idNumber').value);
@@ -19,6 +19,7 @@ export default Controller.extend({
         student.set('schedule', document.getElementById('schedule').value);
         student.save();
       });
+      this.transitionToRoute('convocatories');
     },
   },
 });
