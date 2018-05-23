@@ -20,16 +20,15 @@ export default Controller.extend({
       var student = this.get('model.students').filterBy('uId',uid);
       var convocatory = this.get('model.convocatories').filterBy('id', convocatoryId);
 
-      // convocatory.get('students').pushObject(student);
-      // convocatory.save();
-
       this.store.findRecord('student', student[0].id).then(function(student) {
-        student.set('convocatories', convocatory);
+        student.get('convocatories').addObject(convocatory);
+        // student.set('convocatories', convocatory);
         student.save();
       });
 
       this.store.findRecord('convocatory', convocatory[0].id).then(function(convocatory) {
-        convocatory.set('students', student)
+        convocatory.get('students').addObject(student);
+        // convocatory.set('students', student);
         convocatory.save();
       });
     },
