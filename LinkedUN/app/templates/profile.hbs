@@ -1,1 +1,15 @@
-{{outlet}}
+{{#each model as |activeUser|}}
+  <h1>Tu perfil:</h1>
+  <p>Nombre: <input type='text' name="nombre" value={{activeUser.name}}></p>
+  <p>Correo: <input type='text' name="correo" value={{activeUser.email}}></p>
+  <p>Identificación: <input type='number' name="id" value={{activeUser.idNumber}}></p>
+  <p>Fecha de nacimiento: <input type='date' name="fechaNacimiento" value={{activeUser.dateOfBirth}}></p>
+  <p>Teléfono: <input type='number' name="telNum" value={{activeUser.phone}}></p>
+  <p>Facultad: <input type='text' name="facultad" value={{activeUser.faculty}}></p>
+  <p>Carrera: <input type='text' name="carrera" value={{activeUser.career}}></p>
+  <p>Horario: <input type='text' name="horario" value={{activeUser.schedule}}></p>
+  <p>Porcentaje de avance: <input type='number' name="porcentaje" value={{activeUser.percent}}></p>
+  <p>Promedio Academico: <input type='number' name="promedio" value={{activeUser.pa}}></p>
+  <p>P.A.P.A.: <input type='number' name="papa" value={{activeUser.papa}}></p>
+  <button class="customButton" {{action 'updateProfile' nombre correo id fechaNacimiento telNum facultad carrera horario porcentaje papa}}> Actualizar </button>
+{{/each}}
