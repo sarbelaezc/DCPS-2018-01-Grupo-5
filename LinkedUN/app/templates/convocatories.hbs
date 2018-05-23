@@ -34,6 +34,7 @@
     <p>Porcentaje de avance: <input type='number' placeholder={{activeUser.percent}} disabled='true'></p>
     <p>Promedio Academico: <input type='number' placeholder={{activeUser.pa}} disabled='true'></p>
     <p>P.A.P.A.: <input type='number' placeholder={{activeUser.papa}} disabled='true'></p>
+    {{#link-to 'profile' class='customButton' tagName='button'}}Actualizar perfil{{/link-to}}
   {{/each}}
 </div>
 
