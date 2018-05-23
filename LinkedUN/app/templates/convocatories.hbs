@@ -15,7 +15,7 @@
       <td>{{convocatory.name}}</td>
       <td class='places'>{{convocatory.places}}</td>
       <td>{{convocatory.schedule}}</td>
-      <td><button class='customButton' {{action 'apply' convocatory}}>Aplicar</button></td>
+      <td><button class='customButton' {{action 'apply' convocatory.id}}>Aplicar</button></td>
     </tr>
   {{/each}}
 </table>
