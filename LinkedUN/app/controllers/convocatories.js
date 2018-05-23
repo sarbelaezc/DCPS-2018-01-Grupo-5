@@ -15,14 +15,23 @@ export default Controller.extend({
   }),
 
   actions: {
-    apply(convocatory){
-      const student = this.store.query('student',{
-        orderBy: 'uId',
-        equalTo: this.get('session.currentUser.uid')
+    apply(convocatoryId){
+      var uid = this.get('session.currentUser.uid');
+      var student = this.get('model.students').filterBy('uId',uid);
+      var convocatory = this.get('model.convocatories').filterBy('id', convocatoryId);
+
+      // convocatory.get('students').pushObject(student);
+      // convocatory.save();
+
+      this.store.findRecord('student', student[0].id).then(function(student) {
+        student.set('convocatories', convocatory);
+        student.save();
       });
-      student.forEach(()=>this.get('convocatories').pushObject(convocatory));
-      // student.set('convocatories', convocatory);
-      student.forEach(()=>this.save());
+
+      this.store.findRecord('convocatory', convocatory[0].id).then(function(convocatory) {
+        convocatory.set('students', student)
+        convocatory.save();
+      });
     },
 
   },
