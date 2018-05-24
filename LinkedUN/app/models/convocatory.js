@@ -12,5 +12,6 @@ export default DS.Model.extend({
   activities: DS.attr('string'),
   site: DS.attr('string'),
   schedule: DS.attr('string'),
+  validate: DS.attr('boolean'),
   students: DS.hasMany('student'),
 });

@@ -11,12 +11,14 @@
   </tr>
 
   {{#each filteredConvocatories as |convocatory|}}
-    <tr>
-      <td>{{convocatory.name}}</td>
-      <td class='places'>{{convocatory.places}}</td>
-      <td>{{convocatory.schedule}}</td>
-      <td><button class='customButton' {{action 'apply' convocatory.id}}>Aplicar</button></td>
-    </tr>
+    {{#if convocatory.validate}}
+      <tr>
+        <td>{{convocatory.name}}</td>
+        <td class='places'>{{convocatory.places}}</td>
+        <td>{{convocatory.schedule}}</td>
+        <td><button class='customButton' {{action 'apply' convocatory.id}}>Aplicar</button></td>
+      </tr>
+    {{/if}}
   {{/each}}
 </table>
 
