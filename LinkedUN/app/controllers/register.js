@@ -25,7 +25,7 @@ export default Controller.extend({
                   name: this.name,
                   email: userResponse.email,
                   idNumber: this.idNumber,
-                  dateOfBirth: new Date(this.dateOfBirth),
+                  dateOfBirth: this.dateOfBirth,
                   password: this.password
                 });
                 newStudent.save();
@@ -57,7 +57,7 @@ export default Controller.extend({
                   name: this.name,
                   email: userResponse.email,
                   idNumber: this.idNumber,
-                  dateOfBirth: new Date(this.dateOfBirth),
+                  dateOfBirth: this.dateOfBirth,
                   password: this.password
                 });
                 newProfessor.save();
@@ -88,7 +88,7 @@ export default Controller.extend({
                   name: this.name,
                   email: userResponse.email,
                   idNumber: this.idNumber,
-                  dateOfBirth: new Date(this.dateOfBirth),
+                  dateOfBirth: this.dateOfBirth,
                   password: this.password
                 });
                 newAdministrative.save();
