@@ -9,10 +9,12 @@ export default Component.extend({
    return this.get("session").fetch().catch(function() {}); // <--- note that we now return the promise here
   },
 
-  model: function(){
+  model(){
+    var uid = this.get('session.currentUser.uid');
+    console.log(uid);
     return this.store.query('user',{
       orderBy: 'uId',
-      equalTo: this.get('session.currentUser.uid'),
+      equalTo: uid,
     });
   },
 
