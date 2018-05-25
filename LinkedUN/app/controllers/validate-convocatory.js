@@ -18,7 +18,7 @@ export default Controller.extend({
         convocatory.set('validate', true);
         convocatory.save();
 
-        CustomAlert('Se ha validado la convocatoria "' + convocatory.name + '"');
+        CustomAlert('Se ha validado correctamente esta convocatoria');
       });
     },
   }
