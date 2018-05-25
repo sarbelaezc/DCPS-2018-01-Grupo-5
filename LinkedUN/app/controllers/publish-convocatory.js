@@ -30,6 +30,7 @@ export default Controller.extend({
           professor.get('convocatories').forEach((existingConvocatory)=>{
             convocatory.addObject(existingConvocatory);
           });
+          convocatory.addObject(newConvocatory);
           professor.set('convocatories', convocatory);
           professor.save();
         });

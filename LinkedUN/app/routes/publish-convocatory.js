@@ -10,6 +10,7 @@ export default Route.extend({
   model: function() {
     return {
       professors: this.store.findAll('professor'),
+      convocatories: this.store.findAll('convocatory'),
     };
   },
 
