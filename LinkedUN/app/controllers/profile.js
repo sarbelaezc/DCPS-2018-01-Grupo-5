@@ -8,7 +8,7 @@ export default Controller.extend({
       this.store.findRecord('student', student[0].id).then(function(student){
         student.set('name', document.getElementById('name').value);
         student.set('career', document.getElementById('career').value);
-        console.log(document.getElementById('dateOfBirth').value);
+        // console.log(document.getElementById('dateOfBirth').value);
         student.set('dateOfBirth', document.getElementById('dateOfBirth').value);
         student.set('email', document.getElementById('email').value);
         student.set('faculty', document.getElementById('faculty').value);

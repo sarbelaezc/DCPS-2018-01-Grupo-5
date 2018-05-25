@@ -1,1 +1,37 @@
+<table class='convocatorias'>
+  <tr>
+    <th class='title'>Nombre</th>
+    <th class='title'>Puestos disponibles</th>
+    <th class='title'>Carreras afines</th>
+    <th class='title'>Departamento</th>
+    <th class='title'>Intensidad horaria</th>
+    <th class='title'>Tiempo de vinculación</th>
+    <th class='title'>Remuneración</th>
+    <th class='title'>Porcentaje de avance requerido</th>
+    <th class='title'>Actividades</th>
+    <th class='title'>Horario</th>
+    <th class='title'>Lugar</th>
+    <th></th>
+  </tr>
+
+  {{#each filteredConvocatories as |convocatory|}}
+    {{#unless convocatory.validate}}
+      <tr>
+        <td>{{convocatory.name}}</td>
+        <td class='places'>{{convocatory.places}}</td>
+        <td>{{convocatory.career}}</td>
+        <td>{{convocatory.department}}</td>
+        <td class='places'>{{convocatory.hourlyintensity}}</td>
+        <td class='places'>{{convocatory.bonding_time}}</td>
+        <td>{{convocatory.remuneration}}</td>
+        <td class='places'>{{convocatory.required_percent}} %</td>
+        <td>{{convocatory.activities}}</td>
+        <td>{{convocatory.schedule}}</td>
+        <td>{{convocatory.site}}</td>
+        <td><button class='customButton' {{action 'validate' convocatory.id}}>Validar</button></td>
+      </tr>
+    {{/unless}}
+  {{/each}}
+</table>
+
 {{outlet}}

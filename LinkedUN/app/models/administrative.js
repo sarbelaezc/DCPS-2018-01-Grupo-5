@@ -9,4 +9,5 @@ export default DS.Model.extend({
   password: DS.attr('string'),
   phone: DS.attr('number',{defaultValue:0}),
   charge: DS.attr('string',{defaultValue:'null'}),
+  convocatory: DS.hasMany('convocatory', { async: true, inverse: null }),
 });
