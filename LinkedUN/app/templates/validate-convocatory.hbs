@@ -15,7 +15,7 @@
   </tr>
 
   {{#each filteredConvocatories as |convocatory|}}
-    {{#if convocatory.validate}}
+    {{#unless convocatory.validate}}
       <tr>
         <td>{{convocatory.name}}</td>
         <td class='places'>{{convocatory.places}}</td>
@@ -30,7 +30,7 @@
         <td>{{convocatory.site}}</td>
         <td><button class='customButton' {{action 'validate' convocatory.id}}>Validar</button></td>
       </tr>
-    {{/if}}
+    {{/unless}}
   {{/each}}
 </table>
 

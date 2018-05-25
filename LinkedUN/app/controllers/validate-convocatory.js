@@ -15,10 +15,14 @@ export default Controller.extend({
       var convocatory = this.get('model.convocatories').filterBy('id', convocatoryId);
 
       this.store.findRecord('convocatory', convocatory[0].id).then(function(convocatory) {
-        convocatory.set('validate', true);
-        convocatory.save();
+        var validation = confirm('Está a punto de validar esta convocatoria, ¿está seguro de continuar?');
+        if (validation) {
+          convocatory.set('validate', true);
+          convocatory.save();
 
-        CustomAlert('Se ha validado correctamente esta convocatoria');
+          CustomAlert('Se ha validado correctamente esta convocatoria');
+        }
+
       });
     },
   }
