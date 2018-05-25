@@ -1,0 +1,25 @@
+
+<table class='customTable'>
+  <tr>
+    <th class='title'>Nombre</th>
+    <th class='title'>Porcentaje de avance</th>
+    <th class='title'>Promedio academico</th>
+    <th class='title'>P.A.P.A</th>
+    <th class='title'>Horario</th>
+    <th class='title'>Carrera</th>
+    <th></th>
+  </tr>
+
+  {{#each model.students as |student|}}
+      <tr>
+        <td class='places'>{{student.name}}</td>
+        <td class='places'>{{student.percent}}</td>
+        <td class='places'>{{student.pa}}</td>
+        <td class='places'>{{student.papa}}</td>
+        <td class='places'>{{student.schedule}}</td>
+        <td class='places'>{{student.career}}</td>
+        <td><button class='customButton'>Aceptar</button></td>
+      </tr>
+  {{/each}}
+</table>
+{{outlet}}
