@@ -13,6 +13,8 @@ Router.map(function() {
   this.route('publish-convocatory');
   this.route('profile');
   this.route('validate-convocatory');
+  this.route('answer-student');
+  this.route('answer-student\\convocatory', {path: '/asnwer-student/:convocatoryId'});
 });
 
 export default Router;
