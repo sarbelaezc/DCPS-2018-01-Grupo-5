@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   actions: {
-    updateProfile(name, email, Id, birthDate, telNum, faculty, career, schedule, percentage, prom, papa){
+    updateProfile(){
       var uid = this.get('session.currentUser.uid');
       var student = this.get('model.students').filterBy('uId',uid);
       this.store.findRecord('student', student[0].id).then(function(student){

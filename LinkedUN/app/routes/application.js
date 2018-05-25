@@ -11,7 +11,6 @@ export default Route.extend({
 
   model(){
     var uid = this.get('session.currentUser.uid');
-    console.log(uid);
     return this.store.query('user',{
       orderBy: 'uId',
       equalTo: uid,
