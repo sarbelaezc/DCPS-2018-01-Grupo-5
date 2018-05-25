@@ -14,6 +14,6 @@ export default DS.Model.extend({
   schedule: DS.attr('string'),
   validate: DS.attr('boolean'),
   students: DS.hasMany('student'),
-  professor: DS.belongsTo('professor'),
-  administrative: DS.belongsTo('administrative'),
+  professor: DS.hasMany('professor'),
+  administrative: DS.hasMany('administrative'),
 });
