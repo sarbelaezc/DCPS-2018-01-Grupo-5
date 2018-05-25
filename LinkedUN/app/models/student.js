@@ -14,5 +14,5 @@ export default DS.Model.extend({
   percent: DS.attr('number',{defaultValue:0}),
   pa: DS.attr('number',{defaultValue:0}),
   papa: DS.attr('number',{defaultValue:0}),
-  convocatories: DS.hasMany('convocatory'),
+  convocatories: DS.hasMany('convocatory', { async: true, inverse: null }),
 });
