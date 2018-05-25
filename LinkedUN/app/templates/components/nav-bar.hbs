@@ -4,11 +4,16 @@
   {{#link-to 'index'}} Inicio {{/link-to}}
   {{!-- <div class="account"> --}}
     {{#if session.isAuthenticated}}
-      {{#link-to 'profile'}} Perfil {{/link-to}}
-      {{#link-to 'convocatories'}} Convocatorias {{/link-to}}
-      {{#link-to 'publish-convocatory'}} Publicar Convocatoria {{/link-to}}
-      {{#link-to 'validate-convocatory'}} Validar Convocatoria {{/link-to}}
-      {{#link-to 'answer-student'}} Responder estudiantes {{/link-to}}
+      {{#if user.isStudent}}
+        {{#link-to 'profile'}} Perfil {{/link-to}}
+        {{#link-to 'convocatories'}} Convocatorias {{/link-to}}
+      {{else if user.isContractor}}
+        {{#if user.isAdministrative}}
+          {{#link-to 'validate-convocatory'}} Validar Convocatoria {{/link-to}}
+        {{/if}}
+        {{#link-to 'publish-convocatory'}} Publicar Convocatoria {{/link-to}}
+        {{#link-to 'answer-student'}} Responder estudiantes {{/link-to}}
+      {{/if}}
       <a {{action 'signOut'}} href='login'> Salir </a>
       {{!-- {{#link-to 'login'}} Salir {{/link-to}} --}}
     {{else}}
