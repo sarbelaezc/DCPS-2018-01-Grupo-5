@@ -1,1 +1,21 @@
+<table class='convocatorias'>
+  <tr>
+    <th class='title'>Nombre&emsp;</th>
+    <th class='title'>Puestos disponibles&emsp;</th>
+    <th class='title'>Horario&emsp;</th>
+    <th></th>
+  </tr>
+
+  {{#each filteredConvocatories as |convocatory|}}
+    {{#unless convocatory.validate}}
+      <tr>
+        <td>{{convocatory.name}}</td>
+        <td class='places'>{{convocatory.places}}</td>
+        <td>{{convocatory.schedule}}</td>
+        <td><button class='customButton' {{action 'validate' convocatory.id}}>Validar</button></td>
+      </tr>
+    {{/unless}}
+  {{/each}}
+</table>
+
 {{outlet}}
