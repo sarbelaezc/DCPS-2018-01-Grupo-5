@@ -15,4 +15,5 @@ export default DS.Model.extend({
   validate: DS.attr('boolean'),
   students: DS.hasMany('student'),
   professor: DS.belongsTo('professor'),
+  administrative: DS.belongsTo('administrative'),
 });
