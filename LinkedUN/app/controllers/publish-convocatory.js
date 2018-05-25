@@ -3,6 +3,10 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   actions: {
     publish(department, name, career, places, hourlyintensity, bonding_time, remuneration, required_percent, activities, site, schedule){
+      var uid = this.get('session.currentUser.uid');
+      var professor = this.get('model.professors').filterBy('uId', uid);
+      var convocatory = this.get('model.convocatories').filterBy('professor', professor[0]);
+
       if (department==''||name==''||career==''||places==''||hourlyintensity==''||bonding_time==''||remuneration==''||required_percent==''||activities==''||site==''||schedule==''||schedule==undefined) {
         errorCustomAlert('Debes completar todos los campos antes de completar la publicación');
       }else {
@@ -17,9 +21,19 @@ export default Controller.extend({
           required_percent: this.required_percent,
           activities: this.activities,
           site: this.site,
-          schedule: this.schedule
+          schedule: this.schedule,
+          professor: professor[0],
         });
         newConvocatory.save();
+
+        this.store.findRecord('professor', professor[0].id).then(function(professor){
+          professor.get('convocatories').forEach((existingConvocatory)=>{
+            convocatory.addObject(existingConvocatory);
+          });
+          professor.set('convocatories', convocatory);
+          professor.save();
+        });
+
         CustomAlert('Se ha publicado satisfactoriamente la convocatoria, espere la validación de un adminsitrativo')
       }
     }
