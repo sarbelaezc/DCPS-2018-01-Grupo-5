@@ -14,7 +14,7 @@ Router.map(function() {
   this.route('profile');
   this.route('validate-convocatory');
   this.route('answer-student');
-  this.route('answer-student\\convocatory', {path: '/asnwer-student/:convocatoryId'});
+  this.route('convocatory', {path: '/answer-student/convocatory/:id'});
 });
 
 export default Router;

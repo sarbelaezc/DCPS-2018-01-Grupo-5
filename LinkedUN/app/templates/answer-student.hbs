@@ -1,0 +1,16 @@
+{{#each model as |user|}}
+<table class='customTable'>
+  <tr>
+    <th class='title'>Convocatoria validada</th>
+  </tr>
+{{#each user.convocatories as |convocatory|}}
+  {{#if convocatory.validate}}
+      <tr>
+        <td class='places'>{{#link-to 'convocatory' convocatory.id}}{{convocatory.name}}{{/link-to}}</td>
+      </tr>
+  {{/if}}
+  {{/each}}
+</table>
+{{/each}}
+
+{{outlet}}
