@@ -12,8 +12,7 @@ export default DS.Model.extend({
   activities: DS.attr('string'),
   site: DS.attr('string'),
   schedule: DS.attr('string'),
-  validate: DS.attr('boolean'),
+  validate: DS.attr('boolean', {defaultValue:false}),
   students: DS.hasMany('student', { async: true, inverse: null }),
-  professor: DS.hasMany('professor', { async: true, inverse: null }),
-  administrative: DS.hasMany('administrative', { async: true, inverse: null }),
+  professor: DS.belongsTo('professor', { async: true, inverse: null }),
 });
