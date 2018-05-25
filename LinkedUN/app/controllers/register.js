@@ -29,6 +29,11 @@ export default Controller.extend({
                   password: this.password
                 });
                 newStudent.save();
+                var newUser = this.store.createRecord('user', {
+                    uId: userResponse.uid,
+                    isStudent: true,
+                  });
+                  newUser.save();
                 this.transitionToRoute('login');
                 this.get('session').close();
                 CustomAlert('Se ha registrado satisfactoriamente como Estudiante Activo');
@@ -61,6 +66,12 @@ export default Controller.extend({
                   password: this.password
                 });
                 newProfessor.save();
+                var newUser = this.store.createRecord('user', {
+                    uId: userResponse.uid,
+                    isContractor: true,
+                    isProfessor: true
+                  });
+                  newUser.save();
                 this.transitionToRoute('login');
                 CustomAlert('Se ha registrado satisfactoriamente como Profesor Vinculado');
               }).catch(function(){
@@ -92,6 +103,12 @@ export default Controller.extend({
                   password: this.password
                 });
                 newAdministrative.save();
+                var newUser = this.store.createRecord('user', {
+                    uId: userResponse.uid,
+                    isContractor: true,
+                    isAdministrative:true
+                  });
+                  newUser.save();
                 this.transitionToRoute('login');
                 CustomAlert('Se ha registrado satisfactoriamente como Profesor Vinculado');
               }).catch(function(){

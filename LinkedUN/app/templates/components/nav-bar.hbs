@@ -2,12 +2,11 @@
 <div class="topnav" id="myTopnav">
 
   {{#link-to 'index'}} Inicio {{/link-to}}
-  {{#link-to 'convocatories'}} Convocatorias {{/link-to}}
-  {{#link-to 'publish-convocatory'}} Publicar Convocatoria {{/link-to}}
-  {{#link-to 'profile'}} Perfil {{/link-to}}
-
   {{!-- <div class="account"> --}}
     {{#if session.isAuthenticated}}
+      {{#link-to 'profile'}} Perfil {{/link-to}}
+      {{#link-to 'convocatories'}} Convocatorias {{/link-to}}
+      {{#link-to 'publish-convocatory'}} Publicar Convocatoria {{/link-to}}
       <a {{action 'signOut'}} href='login'> Salir </a>
       {{!-- {{#link-to 'login'}} Salir {{/link-to}} --}}
     {{else}}

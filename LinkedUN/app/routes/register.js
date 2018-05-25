@@ -9,7 +9,7 @@ export default Route.extend({
 
   model: function() {
     return {
-      users: this.store.findAll('student')
+      users: this.store.findAll('user')
     };
   }
 });

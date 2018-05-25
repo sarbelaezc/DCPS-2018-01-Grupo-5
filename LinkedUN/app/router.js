@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('convocatories');
   this.route('publish-convocatory');
   this.route('profile');
+  this.route('validate-convocatory');
 });
 
 export default Router;
